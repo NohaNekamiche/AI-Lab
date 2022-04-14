@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "578059303858",
+    "project_id": "ai-lab-bc3b0",
+    "storage_bucket": "ai-lab-bc3b0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:578059303858:android:e7db5a60ff11723d5302ab",
+        "android_client_info": {
+          "package_name": "com.example.ailab"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "578059303858-rb51s2sihlgo4hv1uqccc2kp91kfvvof.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCgzGOHEu4Wfz73DFzhiYbRAFnJmXZl_cM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "578059303858-rb51s2sihlgo4hv1uqccc2kp91kfvvof.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

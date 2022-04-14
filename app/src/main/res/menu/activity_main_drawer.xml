@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_baseline_home_24"
+            android:title="@string/menu_home" />
+        <item
+            android:id="@+id/nav_gallery"
+            android:icon="@drawable/ic_baseline_text_from_image_24"
+            android:title="@string/menu_gallery" />
+        <item
+            android:id="@+id/nav_slideshow"
+            android:icon="@drawable/ic_baseline_image_24"
+            android:title="@string/menu_slideshow" />
+        <item
+            android:id="@+id/nav_language_translate"
+            android:icon="@drawable/ic_baseline_language_24"
+            android:title="@string/menu_slideshow" />
+        <item
+            android:id="@+id/nav_obj_detect"
+            android:icon="@drawable/ic_baseline_object_detection_24"
+            android:title="@string/menu_slideshow" />
+        <item
+            android:id="@+id/nav_face_detect"
+            android:icon="@drawable/ic_baseline_face_24"
+            android:title="@string/menu_slideshow" />
+        <item
+            android:id="@+id/nav_qr_code"
+            android:icon="@drawable/ic_baseline_qr_code_scanner_24"
+            android:title="@string/menu_slideshow" />
+        <item
+            android:id="@+id/nav_chat"
+            android:icon="@drawable/ic_baseline_textsms_24"
+            android:title="@string/menu_slideshow" />
+
+    </group>
+</menu>
