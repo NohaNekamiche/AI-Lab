@@ -22,4 +22,10 @@
         android:name="com.example.ailab.ui.slideshow.SlideshowFragment"
         android:label="@string/menu_slideshow"
         tools:layout="@layout/fragment_slideshow" />
+    <fragment
+        android:id="@+id/nav_language_translate"
+        android:name="com.example.ailab.ui.languageTranslation.LanguageTranslationFragment"
+        android:label="Language Translation"
+        tools:layout="@layout/fragment_language_translation"
+        />
 </navigation>

@@ -17,6 +17,10 @@
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.AILab.NoActionBar">
+            <meta-data
+                android:name="com.google.mlkit.vision.DEPENDENCIES"
+                android:value="ocr" />
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
