@@ -70,21 +70,21 @@ class GalleryFragment : Fragment() {
 
         // create camera launcher
         cameraActivityLauncher=registerForActivityResult(ActivityResultContracts.StartActivityForResult(),
-            object :ActivityResultCallback<ActivityResult>{
-                override fun onActivityResult(result: ActivityResult?) {
-                    val data=result?.data
-                    try {
-                        val photo =data?.extras?.get("data") as Bitmap
-                       // img.setImageBitmap(photo)
-                        imageInput= InputImage.fromBitmap(photo,0)
-                        processImage()
-                        //FaceRec()
-                    }
-                    catch (e: Exception){
-                        Log.d(TAG,"onActivityResult ${e.message}")
-                    }
+        object :ActivityResultCallback<ActivityResult>{
+            override fun onActivityResult(result: ActivityResult?) {
+                val data=result?.data
+                try {
+                    val photo =data?.extras?.get("data") as Bitmap
+                    // img.setImageBitmap(photo)
+                    imageInput= InputImage.fromBitmap(photo,0)
+                    processImage()
+                    //FaceRec()
+                }
+                catch (e: Exception){
+                    Log.d(TAG,"onActivityResult ${e.message}")
                 }
             }
+        }
         )
         //create gallery launcher
         galleryActivityLauncher= registerForActivityResult(
@@ -135,6 +135,9 @@ class GalleryFragment : Fragment() {
                     }
                 })
             builder.show()
+        }
+        copy.setOnClickListener {
+            copyText()
         }
     }
 
@@ -207,7 +210,13 @@ class GalleryFragment : Fragment() {
     }
 
     //copy result
+    private fun copyText(){
+        val myClipboard: ClipboardManager = requireActivity()?.getSystemService(CLIPBOARD_SERVICE) as ClipboardManager
+        val myClip: ClipData =ClipData.newPlainText("Label", result.text)
+        myClipboard.setPrimaryClip(myClip)
+        Toast.makeText(requireContext(),"Text Copied",Toast.LENGTH_SHORT).show()
 
+    }
 
 
 
