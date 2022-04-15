@@ -3,6 +3,7 @@ package com.example.ailab.ui.gallery
 import android.app.Activity
 import android.app.AlertDialog
 import android.content.ContentValues.TAG
+import android.content.Context
 import android.content.DialogInterface
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -22,13 +23,21 @@ import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.core.content.ContextCompat.getSystemService
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.ailab.databinding.FragmentGalleryBinding
+import com.google.android.gms.tasks.Task
 import com.google.mlkit.vision.common.InputImage
+import com.google.mlkit.vision.text.Text
+import com.google.mlkit.vision.text.TextRecognition
 import com.google.mlkit.vision.text.TextRecognizer
+import com.google.mlkit.vision.text.latin.TextRecognizerOptions
 import kotlinx.android.synthetic.main.fragment_gallery.*
 import java.lang.Exception
+import android.content.ClipData
+import android.content.ClipboardManager
+import android.content.Context.CLIPBOARD_SERVICE
 
 class GalleryFragment : Fragment() {
 
@@ -58,10 +67,7 @@ class GalleryFragment : Fragment() {
         _binding = FragmentGalleryBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.result
-        galleryViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
-        }
+
         // create camera launcher
         cameraActivityLauncher=registerForActivityResult(ActivityResultContracts.StartActivityForResult(),
             object :ActivityResultCallback<ActivityResult>{
@@ -102,7 +108,8 @@ class GalleryFragment : Fragment() {
                     }
                 }
             )
-
+        //get ai model to extract text from image
+        textRecognizer= TextRecognition.getClient(TextRecognizerOptions.DEFAULT_OPTIONS)
 
         return root
     }
@@ -132,6 +139,15 @@ class GalleryFragment : Fragment() {
     }
 
     private fun processImage() {
+        //start prediction
+        val result : Task<Text> =textRecognizer.process(imageInput)
+            .addOnSuccessListener {
+                result.text=it.text
+            }
+            .addOnFailureListener {
+                result.text="Error: ${it.message}"
+
+            }
 
     }
 
@@ -189,5 +205,11 @@ class GalleryFragment : Fragment() {
 
         }
     }
+
+    //copy result
+
+
+
+
 
 }
