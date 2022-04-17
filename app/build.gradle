@@ -74,4 +74,10 @@ dependencies {
     implementation 'com.google.mlkit:language-id:17.0.3'
     // Use this dependency to use the dynamically downloaded model in Google Play Services
     implementation 'com.google.android.gms:play-services-mlkit-language-id:17.0.0-beta1'
+
+
+    implementation 'com.google.mlkit:translate:17.0.0'
+    implementation 'com.github.f0ris.sweetalert:library:1.6.2'
+
+    implementation 'com.google.mlkit:smart-reply:17.0.0'
 }

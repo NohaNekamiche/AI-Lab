@@ -7,7 +7,11 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
+import com.example.ailab.R
 import com.example.ailab.databinding.FragmentHomeBinding
+import com.example.ailab.ui.gallery.GalleryFragment
+import kotlinx.android.synthetic.main.fragment_home.*
 
 class HomeFragment : Fragment() {
 
@@ -36,4 +40,24 @@ class HomeFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        imgRecCard.setOnClickListener {v->
+            v?.findNavController()?.navigate(R.id.action_nav_home_to_nav_gallery2)
+
+        }
+        imgLabCard.setOnClickListener {v->
+            v?.findNavController()?.navigate(R.id.action_nav_home_to_nav_slideshow2)
+        }
+        langCard.setOnClickListener {v->
+            v?.findNavController()?.navigate(R.id.action_nav_home_to_nav_language_translate2)
+        }
+        chatCard.setOnClickListener { v->
+            v?.findNavController()?.navigate(R.id.action_nav_home_to_nav_chat)
+        }
+
+    }
+
+
 }

@@ -9,7 +9,21 @@
         android:id="@+id/nav_home"
         android:name="com.example.ailab.ui.home.HomeFragment"
         android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+
+        <action
+            android:id="@+id/action_nav_home_to_nav_gallery2"
+            app:destination="@id/nav_gallery" />
+        <action
+            android:id="@+id/action_nav_home_to_nav_slideshow2"
+            app:destination="@id/nav_slideshow" />
+        <action
+            android:id="@+id/action_nav_home_to_nav_language_translate2"
+            app:destination="@id/nav_language_translate" />
+        <action
+            android:id="@+id/action_nav_home_to_nav_chat"
+            app:destination="@id/nav_chat" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_gallery"
@@ -27,5 +41,11 @@
         android:name="com.example.ailab.ui.languageTranslation.LanguageTranslationFragment"
         android:label="Language Translation"
         tools:layout="@layout/fragment_language_translation"
+        />
+
+    <fragment android:id="@+id/nav_chat"
+        android:name="com.example.ailab.ui.ChatWithMe"
+        android:label="Chat With Me"
+        tools:layout="@layout/fragment_chat_with_me"
         />
 </navigation>
